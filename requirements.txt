@@ -1,0 +1,12 @@
+django==6.0
+djongo==1.2.31
+python-dotenv
+gunicorn
+whitenoise
+pymongo==3.12.3
+dnspython
+asgiref==3.11.0
+sqlparse==0.5.5
+pytz==2025.2
+pillow==12.0.0
+mongoengine==0.29.1
