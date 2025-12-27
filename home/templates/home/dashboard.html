@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Premium Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+</head>
+
+<body style="flex-direction: column;">
+
+    <div class="login-container dashboard-container">
+        <div class="login-header">
+            <h1>Welcome, {{ username }}!</h1>
+            <p>You have successfully authenticated securely.</p>
+        </div>
+
+        <div class="profile-card">
+            <h3 class="card-title">Profile Information</h3>
+            <ul class="profile-list">
+                <li><strong>Email:</strong> {{ email }}</li>
+                <li><strong>City:</strong> {{ city }}</li>
+                <li><strong>Created:</strong> {{ created_at }}</li>
+            </ul>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h4>Sessions</h4>
+                <p class="stat-value">01</p>
+            </div>
+            <div class="stat-box">
+                <h4>Safety</h4>
+                <p class="stat-value secure">High</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center;">
+            <a href="{% url 'logout' %}" class="btn-login"
+                style="display: inline-block; text-decoration: none; padding: 12px 40px;">Log Out</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

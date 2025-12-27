@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1>پذا وش آتکغئے</h1>
+            <p>وثی اکاؤنٹ ئا سائن ان کن</p>
+        </div>
+
+        {% if error %}
+        <div
+            style="color: #ff4d4d; background: rgba(255, 77, 77, 0.1); padding: 10px; border-radius: 8px; margin-bottom: 20px; text-align: center; border: 1px solid rgba(255, 77, 77, 0.3);">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if success %}
+        <div
+            style="color: #2ecc71; background: rgba(46, 204, 113, 0.1); padding: 10px; border-radius: 8px; margin-bottom: 20px; text-align: center; border: 1px solid rgba(46, 204, 113, 0.3);">
+            {{ success }}
+        </div>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <div class="input-focus-line"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    <div class="input-focus-line"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-login">Sign In</button>
+        </form>
+
+        <div class="footer-links" style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <a href="{% url 'signup' %}">Don't have an account? Create one</a>
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+
+    <script src="{% static 'home/js/script.js' %}"></script>
+</body>
+
+</html>
